@@ -69,7 +69,7 @@ public class GearRatios extends AbstractPuzzle<CharGrid> {
                 .map(Cell::value)
                 .anyMatch(GearRatios::isSymbol);
 
-        return Optional.of(partNumber).filter(p -> hasSymbol);
+        return Optional.of(partNumber).filter(_ -> hasSymbol);
     }
 
     private static List<Gear> findGearRatiosOfEngine(CharGrid engineSchematic) {
@@ -93,7 +93,7 @@ public class GearRatios extends AbstractPuzzle<CharGrid> {
 
         Gear gear = new Gear(gearPartNumbers.getFirst(), gearPartNumbers.getLast());
 
-        return Optional.of(gear).filter(g -> gearPartNumbers.size() == 2);
+        return Optional.of(gear).filter(_ -> gearPartNumbers.size() == 2);
     }
 
     private static boolean isSymbol(char character) {

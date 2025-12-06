@@ -59,7 +59,7 @@ public class DockingData extends AbstractPuzzle<List<MemoryUpdate>> {
     private static long decodeProgramVersionOne(List<MemoryUpdate> updates) {
         Map<Long, Long> memory = updates.stream()
                 .map(MemoryUpdate::applyBitmaskToValue)
-                .collect(Collectors.toMap(MemoryUpdate::address, MemoryUpdate::value, (a, b) -> b));
+                .collect(Collectors.toMap(MemoryUpdate::address, MemoryUpdate::value, (_, v) -> v));
 
         return memory.values().stream().mapToLong(n -> n).sum();
     }
@@ -68,7 +68,7 @@ public class DockingData extends AbstractPuzzle<List<MemoryUpdate>> {
         Map<Long, Long> memory = updates.stream()
                 .map(MemoryUpdate::applyBitmaskToAddress)
                 .flatMap(Collection::stream)
-                .collect(Collectors.toMap(MemoryUpdate::address, MemoryUpdate::value, (a, b) -> b));
+                .collect(Collectors.toMap(MemoryUpdate::address, MemoryUpdate::value, (_, v) -> v));
 
         return memory.values().stream().mapToLong(n -> n).sum();
     }

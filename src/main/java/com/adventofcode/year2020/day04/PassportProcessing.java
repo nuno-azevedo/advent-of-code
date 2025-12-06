@@ -25,7 +25,7 @@ public class PassportProcessing extends AbstractPuzzle<List<Map<String, String>>
             .put("hcl", new RegexConstraint("^#[0-9a-f]{6}$"))
             .put("ecl", new RegexConstraint("^(amb|blu|brn|gry|grn|hzl|oth)$"))
             .put("pid", new RegexConstraint("^[0-9]{9}$"))
-            .put("cid", string -> true)
+            .put("cid", _ -> true)
             .build();
 
     static {

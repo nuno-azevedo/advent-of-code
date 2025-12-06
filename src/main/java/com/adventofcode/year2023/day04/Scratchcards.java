@@ -48,7 +48,7 @@ public class Scratchcards extends AbstractPuzzle<List<Card>> {
 
     private long processCopiesOfScratchcards(List<Card> scratchcards) {
         Map<Integer, Integer> cardCounter = scratchcards.stream()
-                .collect(Collectors.toMap(Card::cardNumber, card -> 1));
+                .collect(Collectors.toMap(Card::cardNumber, _ -> 1));
 
         scratchcards.forEach(card -> {
             int baseCardCount = cardCounter.get(card.cardNumber());

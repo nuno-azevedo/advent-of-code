@@ -59,7 +59,7 @@ public class LanternFish extends AbstractPuzzle<List<Fish>> {
     private static long simulateFishLifecycleMap(List<Fish> initial, int days) {
         Map<Fish, Long> fishes = initial.stream()
                 .map(Fish::copy)
-                .collect(Collectors.toMap(Function.identity(), fish -> 1L, Long::sum));
+                .collect(Collectors.toMap(Function.identity(), _ -> 1L, Long::sum));
 
         for (int i = 0; i < days; i++) {
             Map<Fish, Long> iteration = new HashMap<>();

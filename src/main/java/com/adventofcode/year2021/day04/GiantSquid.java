@@ -22,12 +22,12 @@ public class GiantSquid extends AbstractPuzzle<Bingo> {
 
     @Override
     protected long partOne(Bingo input) {
-        return calculateBoardScores(input, (a, b) -> a);
+        return calculateBoardScores(input, (a, _) -> a);
     }
 
     @Override
     protected long partTwo(Bingo input) {
-        return calculateBoardScores(input, (a, b) -> b);
+        return calculateBoardScores(input, (_, b) -> b);
     }
 
     @Override

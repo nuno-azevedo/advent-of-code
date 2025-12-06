@@ -8,7 +8,7 @@ import java.nio.file.Path;
 public abstract class AbstractPuzzle<T> {
     protected static Class<? extends AbstractPuzzle<?>> puzzle;
 
-    public static void main(String[] args) throws ReflectiveOperationException {
+    void main() throws ReflectiveOperationException {
         puzzle.getDeclaredConstructor().newInstance().run();
     }
 
