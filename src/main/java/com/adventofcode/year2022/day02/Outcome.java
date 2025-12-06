@@ -1,5 +1,9 @@
 package com.adventofcode.year2022.day02;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@AllArgsConstructor
 enum Outcome {
     LOSE(0) {
         Shape shapeVersus(Shape opponent) {
@@ -25,15 +29,8 @@ enum Outcome {
         }
     };
 
+    @Getter
     private final int score;
-
-    Outcome(int score) {
-        this.score = score;
-    }
-
-    int getScore() {
-        return score;
-    }
 
     abstract Shape shapeVersus(Shape opponent);
 

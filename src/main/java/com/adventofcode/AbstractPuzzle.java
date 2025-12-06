@@ -1,6 +1,7 @@
 package com.adventofcode;
 
 import com.adventofcode.common.Timer;
+import lombok.SneakyThrows;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -22,13 +23,10 @@ public abstract class AbstractPuzzle<T> {
         System.out.println();
     }
 
+    @SneakyThrows
     T readInput() {
         var path = Path.of(String.format("src/main/resources/year%04d/day%02d/%s", year(), day(), filename()));
-        try {
-            return readInput(path);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        return readInput(path);
     }
 
     private int year() {

@@ -1,17 +1,16 @@
 package com.adventofcode.common.graph;
 
+import lombok.AllArgsConstructor;
+
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.SequencedMap;
 import java.util.SequencedSet;
 
+@AllArgsConstructor
 public class Graph<N> extends AbstractGraph<N> {
     private final boolean directed;
     private final SequencedMap<N, SequencedSet<N>> connections = new LinkedHashMap<>();
-
-    public Graph(boolean directed) {
-        this.directed = directed;
-    }
 
     @Override
     public SequencedSet<N> nodes() {
