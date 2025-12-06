@@ -43,7 +43,7 @@ public class Main {
             new TicketTranslation()
     );
 
-    public static void main(String[] args) {
+    void main() {
         PUZZLES.forEach(AbstractPuzzle::run);
     }
 }

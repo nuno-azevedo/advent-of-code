@@ -39,7 +39,7 @@ public class Main {
             new ExtendedPolymerization()
     );
 
-    public static void main(String[] args) {
+    void main() {
         PUZZLES.forEach(AbstractPuzzle::run);
     }
 }

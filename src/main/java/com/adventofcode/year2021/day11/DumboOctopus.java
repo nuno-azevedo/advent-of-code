@@ -48,7 +48,7 @@ public class DumboOctopus extends AbstractPuzzle<IntGrid> {
 
     private static int modelEnergyLevelsAndFlashes(IntGrid energies) {
         IntGrid clone = energies.deepCopy();
-        return IntStream.range(0, STEPS).map(i -> processSingleStep(clone)).sum();
+        return IntStream.range(0, STEPS).map(_ -> processSingleStep(clone)).sum();
     }
 
     private static Integer findFirstStepWhichAllFlash(IntGrid energies) {
@@ -56,8 +56,8 @@ public class DumboOctopus extends AbstractPuzzle<IntGrid> {
         IntGrid clone = energies.deepCopy();
 
         return IntStream.iterate(1, i -> i + 1).boxed()
-                .peek(i -> processSingleStep(clone))
-                .filter(i -> clone.equals(zero))
+                .peek(_ -> processSingleStep(clone))
+                .filter(_ -> clone.equals(zero))
                 .findFirst()
                 .orElseThrow();
     }
