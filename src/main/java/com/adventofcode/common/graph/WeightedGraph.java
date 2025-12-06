@@ -1,5 +1,7 @@
 package com.adventofcode.common.graph;
 
+import lombok.AllArgsConstructor;
+
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -9,13 +11,10 @@ import java.util.SequencedMap;
 import java.util.SequencedSet;
 import java.util.stream.Collectors;
 
+@AllArgsConstructor
 public class WeightedGraph<N> extends AbstractGraph<N> {
     private final boolean directed;
     private final SequencedMap<N, SequencedSet<Edge<N>>> connections = new LinkedHashMap<>();
-
-    public WeightedGraph(boolean directed) {
-        this.directed = directed;
-    }
 
     @Override
     public SequencedSet<N> nodes() {

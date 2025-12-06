@@ -1,7 +1,11 @@
 package com.adventofcode.year2020.day12;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 import java.util.Arrays;
 
+@AllArgsConstructor
 enum Direction {
     NORTH('N', 1) {
         Direction rotate(int degrees) {
@@ -60,16 +64,8 @@ enum Direction {
     };
 
     private final char code;
+    @Getter
     private final int signal;
-
-    Direction(char code, int signal) {
-        this.code = code;
-        this.signal = signal;
-    }
-
-    int getSignal() {
-        return signal;
-    }
 
     abstract Direction rotate(int degrees);
 

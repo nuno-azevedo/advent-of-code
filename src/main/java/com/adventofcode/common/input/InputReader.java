@@ -1,5 +1,7 @@
 package com.adventofcode.common.input;
 
+import lombok.NoArgsConstructor;
+
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
@@ -10,9 +12,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
+@NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
 public final class InputReader {
-    private InputReader() { }
-
     public static Stream<String> readAsLineStream(Path path) {
         try {
             return Files.lines(path, Charset.defaultCharset());
