@@ -33,6 +33,30 @@ public abstract class AbstractGraph<N> {
         return Collections.unmodifiableSequencedSet(new LinkedHashSet<>(neighbors));
     }
 
+    public Set<Set<N>> groupConnectedClusters() {
+        Set<Set<N>> connectedClusters = new HashSet<>();
+
+        var visited = new HashSet<N>();
+
+        for (var root : nodes()) {
+            if (visited.add(root)) {
+                var cluster = new HashSet<N>();
+                connectedClusters.add(cluster);
+
+                var stack = new ArrayDeque<N>();
+                stack.push(root);
+
+                while (!stack.isEmpty()) {
+                    var node = stack.pop();
+                    cluster.add(node);
+                    neighborsNonVisited(node, visited).forEach(stack::push);
+                }
+            }
+        }
+
+        return connectedClusters;
+    }
+
     public boolean breadthFirstSearch(N root, N target) {
         return search(root, target, Deque::pollFirst);
     }
