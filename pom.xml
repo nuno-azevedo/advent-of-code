@@ -17,6 +17,8 @@
         <guava.version>33.5.0-jre</guava.version>
         <commons-lang3.version>3.20.0</commons-lang3.version>
         <protonpack.version>1.16</protonpack.version>
+        <java-smt.version>5.0.1</java-smt.version>
+        <z3.version>4.14.0</z3.version>
 
         <!-- Testing Dependencies Versions -->
         <junit-jupiter-engine.version>6.0.1</junit-jupiter-engine.version>
@@ -52,6 +54,18 @@
             <version>${protonpack.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.sosy-lab</groupId>
+            <artifactId>java-smt</artifactId>
+            <version>${java-smt.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.sosy-lab</groupId>
+            <artifactId>javasmt-solver-z3</artifactId>
+            <version>${z3.version}</version>
+        </dependency>
+
         <!-- Testing Dependencies -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -83,6 +97,12 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
+                <configuration>
+                    <argLine>
+                        --enable-native-access=ALL-UNNAMED
+                        -Djava.library.path=${project.basedir}/.z3
+                    </argLine>
+                </configuration>
             </plugin>
         </plugins>
     </build>
